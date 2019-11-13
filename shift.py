@@ -76,7 +76,7 @@ class Shifter(object):
             self.all(self.LOW)
 
     def spell(self, txt):
-        for ltr in txt:
+        for ltr in txt.upper():
             self.letter(ltr)
             time.sleep(.5)
             self.all(self.LOW)
