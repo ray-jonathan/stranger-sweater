@@ -9,9 +9,13 @@ shift.radiate()
 def main(text="ho ho ho "):
     text = convert(text)
     shift.spell(text)
-    r = requests.get('https://sweater.jonathan-ray.com/msg')
-    parsed = r.json()
-    text = parsed["msg"]
+    shift.radiate()
+    try:
+        r = requests.get('https://sweater.jonathan-ray.com/msg')
+        parsed = r.json()
+        text = parsed["msg"]
+    except:
+        print("whoops")
     main(text)
 
 
