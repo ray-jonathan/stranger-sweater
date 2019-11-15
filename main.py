@@ -2,6 +2,9 @@ from shift import Shifter
 import requests
 from regex import convert
 
+shift = Shifter()
+shift.radiate()
+
 
 def main(text="ho ho ho "):
     text = convert(text)

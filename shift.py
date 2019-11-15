@@ -111,15 +111,31 @@ class Shifter(object):
             GPIO.output(self.y, self.LOW)
             GPIO.output(self.z, self.LOW)
 
+    def radiate(self):
+        GPIO.output(self.y, self.LOW)
+        GPIO.output(self.z, self.LOW)
+        # HGFEDCBA, PONMLKJI, XWVUTSRQ
+        self.shift_out(0b00000000, 0b00010000, 0b00000000)
+        time.sleep(.3)
+        self.shift_out(0b00011100, 0b0011100, 0b01110000)
+        time.sleep(.3)
+        self.shift_out(0b00111110, 0b01111100, 0b11111000)
+        time.sleep(.3)
+        self.shift_out(0b01111111, 0b11111110, 0b11111100)
+        GPIO.output(self.y, self.HIGH)
+        time.sleep(.3)
+        self.all(True)
+        time.sleep(.3)
 
-if __name__ == '__main__':
-    print('Testing shift register connection...')
-    GPIO.setmode(GPIO.BOARD)  # Use board pin numbering
-    s = Shifter()
-    didNotRunTest = False
-    try:
-        while didNotRunTest:
-            s.test()
-            didNotRunTest = False
-    except KeyboardInterrupt:
-        print('Ctrl-C detected.  Quitting...')
+
+# if __name__ == '__main__':
+#     print('Testing shift register connection...')
+#     GPIO.setmode(GPIO.BOARD)  # Use board pin numbering
+#     s = Shifter()
+#     didNotRunTest = True
+#     try:
+#         while didNotRunTest:
+#             s.test()
+#             didNotRunTest = False
+#     except KeyboardInterrupt:
+#         print('Ctrl-C detected.  Quitting...')
