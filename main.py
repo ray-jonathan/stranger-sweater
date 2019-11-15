@@ -4,7 +4,7 @@ import requests
 
 def main(text="ho ho ho "):
     shift.spell(text)
-    r = requests.get('http://sweater.jonathan-ray.com/')
+    r = requests.get('https://sweater.jonathan-ray.com/')
     parsed = r.json()
     text = parsed["msg"]
     main(text)
