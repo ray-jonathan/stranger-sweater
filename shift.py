@@ -117,7 +117,7 @@ class Shifter(object):
         # HGFEDCBA, PONMLKJI, XWVUTSRQ
         self.shift_out(0b00000000, 0b00010000, 0b00000000)
         time.sleep(.3)
-        self.shift_out(0b00011100, 0b0011100, 0b01110000)
+        self.shift_out(0b00011100, 0b00111000, 0b01110000)
         time.sleep(.3)
         self.shift_out(0b00111110, 0b01111100, 0b11111000)
         time.sleep(.3)
